@@ -4,7 +4,7 @@ title: Sheldon Axler Theorem Tree
 
 Hi, welcome to my humble homepage.
 
-Here I will post links to useful resources on the most recent weeks. If you want to make edits to this site, feel free to clone my [git repository](https://github.com/NickC64/MAT224-Quartz.git) and make a pull request.
+Here I will post links to useful resources on the most recent weeks. If you want to make edits to this site, feel free to clone my [git repository](https://github.com/NickC64/MAT224-Quartz.git) and make a pull request. To change specifically this page, make an edit [this markdown file](https://github.com/NickC64/MAT224-Quartz/blob/v4/content/index.md) and submit the request.
 
 On each page is a graph you can expand (graph icon in the top right corner) to see all the theorems displayed on the theorem tree. An arrow pointing from A to B signifies that B uses A in its proof, or B mentions A.
 
