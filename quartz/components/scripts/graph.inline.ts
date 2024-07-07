@@ -134,6 +134,21 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     .attr("height", height)
     .attr("viewBox", [-width / 2 / scale, -height / 2 / scale, width / scale, height / scale])
 
+  // Add arrow marker definition
+  svg.append("defs").selectAll("marker")
+    .data(["end"])
+    .enter().append("marker")
+    .attr("id", String)
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 15)
+    .attr("refY", 0)
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6)
+    .attr("orient", "auto")
+    .append("path")
+    .attr("d", "M0,-5L10,0L0,5")
+    .attr("fill", "var(--lightgray)");
+
   // draw links between nodes
   const link = svg
     .append("g")
@@ -143,6 +158,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     .attr("class", "link")
     .attr("stroke", "var(--lightgray)")
     .attr("stroke-width", 1)
+    .attr("marker-end", "url(#end)");
 
   // svg groups
   const graphNode = svg.append("g").selectAll("g").data(graphData.nodes).enter().append("g")
@@ -329,10 +345,10 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
       .attr("x1", (d: any) => d.source.x)
       .attr("y1", (d: any) => d.source.y)
       .attr("x2", (d: any) => d.target.x)
-      .attr("y2", (d: any) => d.target.y)
-    node.attr("cx", (d: any) => d.x).attr("cy", (d: any) => d.y)
-    labels.attr("x", (d: any) => d.x).attr("y", (d: any) => d.y)
-  })
+      .attr("y2", (d: any) => d.target.y);
+    node.attr("cx", (d: any) => d.x).attr("cy", (d: any) => d.y);
+    labels.attr("x", (d: any) => d.x).attr("y", (d: any) => d.y);
+});
 }
 
 function renderGlobalGraph() {
